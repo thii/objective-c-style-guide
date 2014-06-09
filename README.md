@@ -50,8 +50,8 @@ UIApplication.sharedApplication.delegate;
 
 ## スペーシング
 
-* スペース4つインデントすること。タブキーでインデントしない。Xcodeで設定するように。
-* 条件分岐など(`if`/`else`/`switch`/`while` etc.)のメソッドブレースを同じ行で開き、改行で閉じること。
+* スペース4つでインデントすること。タブキーでインデントしない。Xcodeで設定するように。
+* 条件文(`if`/`else`/`switch`/`while`など)のメソッドは初め中括弧を同じ行で書き、終わり中括弧を改行で書くこと。
 
 **良い例：**
 ```objc
@@ -61,7 +61,7 @@ if (user.isHappy) {
     // 他のをする
 }
 ```
-* メソッドとメソッドは1行を開くこと。メソッド内で処理ごとに1行を開く。
+* メソッドとメソッドは一行を開けること。メソッド内で各処理の間に一行を開けること。
 * `@dynamic`を一行ずつ書くこと。
 
 ## 条件分岐
@@ -80,8 +80,6 @@ if (!error) {
 if (!error)
     return success;
 ```
-
-or
 
 ```objc
 if (!error) return success;
@@ -109,7 +107,7 @@ result = a > b ? x = c > d ? c : d : y;
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
-    // Handle Error
+    // エラー処理
 }
 ```
 
@@ -118,15 +116,15 @@ if (![self trySomethingWithError:&error]) {
 NSError *error;
 [self trySomethingWithError:&error];
 if (error) {
-    // Handle Error
+    // エラー処理
 }
 ```
 
-いくつかのAppleのAPIでは、サクセスする場合エラー変数にゴミを入れられるので条件がNOになってしまう場合がある。
+いくつかのAppleのAPIでは、成功する場合エラー変数にゴミを入れられるので条件がエラー変数がNOになってしまう場合がある。
 
 ## メソッド
 
-メソッドのスコープの後にスペースを開けること。
+メソッドのスコープ(-/+ シンボル)の後にスペースを開けること。
 
 **良い例：**
 ```objc
@@ -134,9 +132,9 @@ if (error) {
 ```
 ## 変数
 
-変数名をわかりやすいように命名してください。`for()` 文以外は一文字の変数名をしないこと。
+変数名をわかりやすいように命名してください。`for()` 文以外は一文字の変数名を使わないこと。
 
-米印は変数のもの。定数は例外。
+米印は変数のものなので変数名に付くように。定数は例外。
 
 **良い例：**
 
@@ -169,7 +167,7 @@ if (error) {
 
 ## 命名
 
-長くて、わかりやすいメソッド名と変数名が良い。
+メソッド名や変数名が長くてわかりやすいのが良い。
 
 **良い例：**
 
@@ -199,23 +197,24 @@ static const NSTimeInterval fadetime = 1.7;
 
 プロパティ名とローカル変数名をキャメルケースで最初の文字を小文字。
 
-LLVMは自動的にsynthesisしてくれるのでsynthesisをしないこと。
+LLVMは自動的に`@synthesis`してくれるので`@synthesis`を書かないこと。
 
 ## コメント
 
-コメントは必要の場合のみする。何故か書いたコードを何の処理ができるか書くように。コメントの更新することを忘れずに。必要がなくなったら削除すること。
+コメントは必要の場合のみ書く。何故か書いたコードを何の処理ができるか書くように。コメントの更新することを忘れずに。必要がなくなったら削除すること。
 
-ブロックコメントをなるべくしないこと。コードがセルフドキュメンティングしてもらうように。ドキュメンテーション生成用のコメントは例外。
+ブロックコメントをなるべく書かないこと。コードがセルフドキュメンティングしてもらうように。ドキュメンテーション生成用のコメントは例外。
 
 ## 初期化
 
 `init` メソッドを以下のように書くこと。
 
 ```objc
-- (instancetype)init {
+- (instancetype)init
+{
     self = [super init]; // または指定の初期化メソッド
     if (self) {
-        // カスタマイズ初期化
+        // カスタマイズ初期化処理
     }
 
     return self;
@@ -224,7 +223,7 @@ LLVMは自動的にsynthesisしてくれるのでsynthesisをしないこと。
 
 ## リテラル
 
-`NSString`、`NSDictionary`、`NSArray`、と `NSNumber`リテラルを使うように。`nil` を`NSArray`や`NSDictionary` リテラルに入れてしますとクラッシュするので入れないように。
+`NSString`、`NSDictionary`、`NSArray`、と `NSNumber`リテラルを使うように。`nil` を`NSArray`や`NSDictionary` リテラルに入れてしまうとクラッシュになるので入れないように。
 
 **良い例：**
 
@@ -246,7 +245,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## CGRect 関数
 
-`CGRect`の`x`, `y`, `width`, と `height`をアクセスする際、構造体メンバーをアクセスせずに**必ず** [`CGGeometry` 関数](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) を使うこと。Appleの `CGGeometry` レファレンス:
+`CGRect`の`x`, `y`, `width`, と `height`の属性をアクセスする際、構造体メンバーをアクセスせずに**必ず** [`CGGeometry` 関数](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) を使うこと。Appleの `CGGeometry` レファレンスより：
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
@@ -340,14 +339,14 @@ typedef NS_OPTIONS(NSUInteger, AdCategory) {
 
 **良い例：**
 
-* `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
-* `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
+* `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` と `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
+* `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` と `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
 Imagesフォルダに同じ目的の画像をグループで分ける。
 
 ## ブーリアン
 
-`nil`が `NO`に分解するので`nil`と比較するの不要。`YES`と比較しないこと。`YES`が1だが`BOOL`8ビットで表すので。
+`nil`が `NO`に分解するので`nil`と比較するの不要。`YES`と比較しないこと。`YES`が1だが`BOOL`型が8ビットで表されるので。
 
 **良い例：**
 
@@ -376,7 +375,7 @@ if (![someObject boolValue])
 
 ```objc
 if ([someObject boolValue] == NO)
-if (isAwesome == YES) // Never do this.
+if (isAwesome == YES) // これは必ずしないこと。
 ```
 
 -----
@@ -392,7 +391,8 @@ if (isAwesome == YES) // Never do this.
 [クラッシュの可能性](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html)を避けるため、スレッドセーフパターンでシングルトンを作成するように。
 
 ```objc
-+ (instancetype)sharedInstance {
++ (instancetype)sharedInstance 
+{
    static id sharedInstance = nil;
 
    static dispatch_once_t onceToken;
@@ -408,9 +408,9 @@ if (isAwesome == YES) // Never do this.
 
 わかりやすいようにXcodeのグループとプロジェクトのフォルダが同じように。型でグループするだけではなく、機能ごとにグループするように。
 
-できれば、targetの Build Settingsの"Treat Warnings as Errors"をオンにし、多めに[アディショナルワーニング](http://boredzo.org/blog/archives/2009-11-07/warnings) をオンにする。特定のワーニングをオフしたい場合、[Clang's pragma 機能](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)を使う。
+できれば、targetのBuild Settingsの"Treat Warnings as Errors"をオンにし、多めに[アディショナルワーニング](http://boredzo.org/blog/archives/2009-11-07/warnings) をオンにする。特定のワーニングをオフしたい場合、[Clang's pragma機能](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)を使う。
 
-# 他のObjective-Cスタイルガイド
+# 他のObjective-Cスタイルガイド(英語)
 
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
