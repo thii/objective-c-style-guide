@@ -1,36 +1,36 @@
 # Objective-Cスタイルガイド
 
-[ニューヨーク・タイムズ Objective-Cスタイルガイド]((https://github.com/NYTimes/objetive-c-style-guide)からフォークした日本語版になります。Issueが見つかったら[こちら](https://github.com/thii/objective-c-style-guide/issues)にあげてください。
+[ニューヨーク・タイムズ Objective-Cスタイルガイド](https://github.com/NYTimes/objetive-c-style-guide)からフォークした日本語版になります。Issueが見つかったら[こちら](https://github.com/thii/objective-c-style-guide/issues)にあげてください。
 
 
 ## はじめに
 
-こちらのスタイルガイドに述べないことはアップルのガイドラインを参考してください(PDFファイル)。
+このスタイルガイドに述べないことはアップルのガイドラインを参考してください(PDFファイル)。
 
 * [Coding Guidelines for Cocoa](https://developer.apple.com/jp/devcenter/ios/library/documentation/CodingGuidelines.pdf)
 
 ## 目次
 
-* [ドットノーテーションシンタックス](#dot-notation-syntax)
-* [スペーシング](#spacing)
-* [条件](#conditionals)
-  * [三項演算子](#ternary-operator)
-* [エラー処理](#error-handling)
-* [メソッド](#methods)
-* [変数](#variables)
-* [命名](#naming)
-* [コメント](#comments)
-* [初期化](#init)
-* [リテラル](#literals)
-* [CGRect 関数](#cgrect-functions)
-* [定数](#constants)
-* [列挙型定数](#enumerated-types)
-* [ビットマスク](#bitmasks)
-* [プライベートプロパティ](#private-properties)
-* [画像命名](#image-naming)
-* [ブーリアン](#booleans)
-* [シングルトン](#singletons)
-* [Xcodeプロジェクト](#xcode-project)
+* [ドットノーテーションシンタックス](#ドットノーテーションシンタックス)
+* [スペーシング](#スペーシング)
+* [条件分岐](#条件分岐)
+  * [三項演算子](#三項演算子)
+* [エラー処理](#エラー処理)
+* [メソッド](#メソッド)
+* [変数](#変数)
+* [命名](#命名)
+* [コメント](#コメント)
+* [初期化](#初期化)
+* [リテラル](#リテラル)
+* [CGRect 関数](#cgrect-関数)
+* [定数](#定数)
+* [列挙型定数](#列挙型定数)
+* [ビットマスク](#ビットマスク)
+* [プライベートプロパティ](#プライベートプロパティ)
+* [画像ファイル名](#画像ファイル名)
+* [ブーリアン](#ブーリアン)
+* [シングルトン](#シングルトン)
+* [Xcodeプロジェクト](#xcode-プロジェクト)
 
 ## ドットノーテーションシンタックス
 
