@@ -30,7 +30,7 @@
 * [画像ファイル名](#画像ファイル名)
 * [ブーリアン](#ブーリアン)
 * [シングルトン](#シングルトン)
-* [Xcodeプロジェクト](#xcode-プロジェクト)
+* [Xcode プロジェクト](#xcode-プロジェクト)
 
 ## ドットノーテーションシンタックス
 
@@ -120,7 +120,7 @@ if (error) {
 }
 ```
 
-いくつかのAppleのAPIでは、成功する場合エラー変数にゴミを入れられるので条件がエラー変数がNOになってしまう場合がある。
+いくつかのAppleのAPIでは、成功する場合エラー変数にゴミを入れられるので条件がエラー変数がNOになってしまう場合があるので。
 
 ## メソッド
 
@@ -339,14 +339,14 @@ typedef NS_OPTIONS(NSUInteger, AdCategory) {
 
 **良い例：**
 
-* `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` と `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
-* `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` と `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
+* `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` や `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
+* `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` や `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
 Imagesフォルダに同じ目的の画像をグループで分ける。
 
 ## ブーリアン
 
-`nil`が `NO`に分解するので`nil`と比較するの不要。`YES`と比較しないこと。`YES`が1だが`BOOL`型が8ビットで表されるので。
+`nil`が `NO`に分解するので`nil`と比較するの不要。`YES`が1だが`BOOL`型が8ビットで表されるので`YES`と比較しないこと。
 
 **良い例：**
 
@@ -375,7 +375,7 @@ if (![someObject boolValue])
 
 ```objc
 if ([someObject boolValue] == NO)
-if (isAwesome == YES) // これは必ずしないこと。
+if (isAwesome == YES) // 必ずしないこと。
 ```
 
 -----
@@ -408,7 +408,7 @@ if (isAwesome == YES) // これは必ずしないこと。
 
 わかりやすいようにXcodeのグループとプロジェクトのフォルダが同じように。型でグループするだけではなく、機能ごとにグループするように。
 
-できれば、targetのBuild Settingsの"Treat Warnings as Errors"をオンにし、多めに[アディショナルワーニング](http://boredzo.org/blog/archives/2009-11-07/warnings) をオンにする。特定のワーニングをオフしたい場合、[Clang's pragma機能](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)を使う。
+できれば、targetのBuild Settingsの"Treat Warnings as Errors"をオンにし、多めに[アディショナルワーニング](http://boredzo.org/blog/archives/2009-11-07/warnings) をオンにする。特定のワーニングをオフしたい場合、[Clang's pragma機能](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)を使ってください。
 
 # 他のObjective-Cスタイルガイド(英語)
 
