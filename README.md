@@ -1,13 +1,13 @@
 # Objective-Cスタイルガイド
 
-[ニューヨーク・タイムズ Objective-Cスタイルガイド](https://github.com/NYTimes/objetive-c-style-guide)からフォークした日本語版になります。Issueが見つかったら[こちら](https://github.com/thii/objective-c-style-guide/issues)にあげてください。
+[ニューヨーク・タイムズ Objective-Cスタイルガイド](https://github.com/NYTimes/objetive-c-style-guide)からフォークした日本語版になります。問題が見つかったら[こちら](https://github.com/thii/objective-c-style-guide/issues)にあげてください。
 
 
 ## はじめに
 
 このスタイルガイドに述べないことはアップルのガイドラインを参考してください(PDFファイル)。
 
-* [Coding Guidelines for Cocoa](https://developer.apple.com/jp/devcenter/ios/library/documentation/CodingGuidelines.pdf)
+* [Cocoa向けコーディングガイドライン](https://developer.apple.com/jp/devcenter/ios/library/documentation/CodingGuidelines.pdf)
 
 ## 目次
 
