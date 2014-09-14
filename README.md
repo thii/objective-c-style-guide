@@ -419,3 +419,6 @@ if (isAwesome == YES) // 必ずしないこと。
 * [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
 * [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
 * [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
+
+# LICENSE
+http://thi.mit-license.org
